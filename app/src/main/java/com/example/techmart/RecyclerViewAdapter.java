@@ -1,5 +1,6 @@
 package com.example.techmart;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         holder.imageView.setImageResource(arr[position]);
-        holder.textView.setText("Order No "+position);
+        holder.textView.setText("Product "+position);
+        holder.pricetextView.setText("LKR 25000.00");
 
     }
 
@@ -43,11 +45,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         ImageView imageView;
         TextView textView;
+        TextView pricetextView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.imageView);
             textView=itemView.findViewById(R.id.textView);
+            pricetextView=itemView.findViewById(R.id.txt_price_bp);
         }
     }
 }

@@ -4,23 +4,27 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
 
         <item
-            android:id="@+id/nav_update_delivery_address"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Change Delivery Address" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:title="@string/menu_home" />
+
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_baseline_payment_24"
+            android:title="Buy Products" />
+
+
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_baseline_shopping_cart_24"
+            android:title="@string/menu_gallery" />
+
+        <item
+            android:id="@+id/nav_order_history"
+            android:icon="@drawable/ic_baseline_history_24"
+            android:title="Order History" />
 
     </group>
 </menu>
