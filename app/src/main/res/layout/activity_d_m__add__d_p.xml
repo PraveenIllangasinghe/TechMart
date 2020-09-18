@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#715D5D"
+    android:orientation="vertical"
+    tools:context=".ishini.DM_Add_DP">
+
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar3"
+      android:layout_width="409dp"
+      android:layout_height="wrap_content"
+      android:background="?attr/colorPrimary"
+      android:minHeight="?attr/actionBarSize"
+      android:theme="?attr/actionBarTheme" />
+
+  <TextView
+      android:id="@+id/textView49"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Add deliver rider for order"
+      android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+  <EditText
+      android:id="@+id/editTextTextPersonName15"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="textPersonName"
+      android:text="Name" />
+
+  <EditText
+      android:id="@+id/editTextTextPersonName16"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="textPersonName"
+      android:text="Name" />
+
+  <EditText
+      android:id="@+id/editTextTextPersonName17"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="textPersonName"
+      android:text="Name" />
+
+  <EditText
+      android:id="@+id/editTextTextPersonName18"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="textPersonName"
+      android:text="Name" />
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="#A6AAA0"
+      android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#4CAF50"
+        android:text="Add to Order" />
+  </LinearLayout>
+
+</LinearLayout>
