@@ -1,12 +1,17 @@
 package com.example.techmart;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -21,6 +26,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class demo extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    Button LogOutBtn;
+    FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     //recycler view for order history
     //private RecyclerView recyclerView;
@@ -33,6 +41,7 @@ public class demo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
 
         //recycler view for order history
@@ -68,6 +77,16 @@ public class demo extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        LogOutBtn = findViewById(R.id.logOutBtn);
+        LogOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent backToSignUp = new Intent(demo.this,SignupActivity.class);
+                startActivity(backToSignUp);
+            }
+        });
     }
 
     @Override
@@ -83,4 +102,5 @@ public class demo extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }

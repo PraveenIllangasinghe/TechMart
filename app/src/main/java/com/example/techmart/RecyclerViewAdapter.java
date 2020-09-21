@@ -14,8 +14,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     int []arr;
 
-    public RecyclerViewAdapter(int[] arr) {
+    String []pNameArr;
+
+    public RecyclerViewAdapter(int[] arr,String[] pNameArr) {
         this.arr = arr;
+        this.pNameArr =pNameArr;
     }
 
     @NonNull
@@ -31,7 +34,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         holder.imageView.setImageResource(arr[position]);
-        holder.textView.setText("Product "+position);
+        holder.textView.setText(pNameArr[position]);
         holder.pricetextView.setText("LKR 25000.00");
 
     }
