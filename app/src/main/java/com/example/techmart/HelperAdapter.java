@@ -83,7 +83,7 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.ViewHolder
             String proDescription = p1.getDescription();
 
             Toast.makeText(view.getContext(), "Clicked", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(view.getContext(),NewActivity.class);
+            Intent intent = new Intent(view.getContext(),AddToCart.class);
             intent.putExtra("ProductID", proID);
             intent.putExtra("ProductName", proName);
             intent.putExtra("ProductPrice", proPrice);
