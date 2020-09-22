@@ -21,7 +21,8 @@ public class AddProduct extends AppCompatActivity {
     EditText id,name,price,des;
     Button addProd;
     DatabaseReference ref;
-    long max;
+    long max = 0;
+    Product Prod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +37,16 @@ public class AddProduct extends AppCompatActivity {
 
      addProd = findViewById(R.id.sellerAddProBtn);
 
+     Prod = new Product();
+
      ref = FirebaseDatabase.getInstance().getReference().child("Product");
 
      ref.addValueEventListener(new ValueEventListener() {
          @Override
          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
+             if(dataSnapshot.exists())
+                 max = dataSnapshot.getChildrenCount();
 
          }
 
@@ -55,6 +60,13 @@ public class AddProduct extends AppCompatActivity {
      addProd.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
+
+             Prod.setDescription(des.getText().toString().trim());
+             Prod.setProductName(name.getText().toString().trim());
+             Prod.setPrice(Float.parseFloat(price.getText().toString().trim()));
+             Prod.setProductId(id.getText().toString().trim());
+
+             ref.child(String.valueOf(max+1)).setValue(Prod);
 
          }
      });
