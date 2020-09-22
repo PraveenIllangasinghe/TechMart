@@ -24,6 +24,7 @@ public class AddProduct extends AppCompatActivity {
     long max = 0;
     Product Prod;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
