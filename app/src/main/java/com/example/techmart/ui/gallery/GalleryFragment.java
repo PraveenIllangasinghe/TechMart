@@ -50,7 +50,7 @@ public class GalleryFragment extends Fragment {
         });
 
 
-        edit = root.findViewById(R.id.edit);
+        edit = root.findViewById(R.id.editct);
         add = root.findViewById(R.id.add);
 
     /*    add.setOnClickListener(new View.OnClickListener() {

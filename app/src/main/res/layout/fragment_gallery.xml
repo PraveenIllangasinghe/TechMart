@@ -24,7 +24,7 @@
 
 
     <EditText
-        android:id="@+id/edit"
+        android:id="@+id/editct"
         android:layout_width="318dp"
         android:layout_height="40dp"
         android:ems="10"

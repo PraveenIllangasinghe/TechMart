@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView createAccount;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
+    DatabaseReference dbRef;
 
 
     @Override
@@ -59,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                String Email = email.getText().toString();
+                final String Email = email.getText().toString();
                 String Pass = password.getText().toString();
 
                 if (Email.isEmpty()) {
@@ -81,6 +84,9 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Please Check Your Email and Password", Toast.LENGTH_SHORT).show();
                             }
                             else {
+
+                                dbRef = FirebaseDatabase.getInstance().getReference();
+                                dbRef.child("Active").setValue(Email);
                                 Intent gotoDemo = new Intent(LoginActivity.this,demo.class);
                                 startActivity(gotoDemo);
                             }

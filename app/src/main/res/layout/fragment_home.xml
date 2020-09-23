@@ -24,11 +24,11 @@
         app:layout_constraintVertical_bias="0.941" />
 
     <TextView
-        android:id="@+id/profile_username_textView"
+        android:id="@+id/Cus_profile_username_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/username"
-        android:textColor="#FFFFFF"
+        android:textColor="#009688"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,14 +36,15 @@
         app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintVertical_bias="0.424" />
 
     <TextView
-        android:id="@+id/profile_email_textView"
+        android:id="@+id/Cus_profile_email_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/email"
-        android:textColor="#FFFFFF"
+        android:textColor="#009688"
+        android:textColorHighlight="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,14 +52,14 @@
         app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517" />
+        app:layout_constraintVertical_bias="0.548" />
 
     <TextView
-        android:id="@+id/profole_password_textView"
+        android:id="@+id/Cus_profile_password_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password"
-        android:textColor="#FFFFFF"
+        android:textColor="#009688"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,14 +67,14 @@
         app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657" />
+        app:layout_constraintVertical_bias="0.691" />
 
     <TextView
-        android:id="@+id/profile_phone_textView"
+        android:id="@+id/Cus_profile_phone_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/phone"
-        android:textColor="#FFFFFF"
+        android:textColor="#009688"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,10 +82,10 @@
         app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.796" />
+        app:layout_constraintVertical_bias="0.82" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/Cus_username_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Praveen"
@@ -95,23 +96,24 @@
         app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426" />
+        app:layout_constraintVertical_bias="0.467" />
 
     <TextView
-        android:id="@+id/textView64"
+        android:id="@+id/Cus_unique_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID: C435276354"
-        android:textColor="#FFFFFF"
+        android:textColor="#E91E63"
         android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/Cus_email_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="praveen@gmail.com"
@@ -122,10 +124,10 @@
         app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
+        app:layout_constraintVertical_bias="0.592" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/Cus_password_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="praveen123"
@@ -136,10 +138,10 @@
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.731" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/Cus_phone_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0716754678"
@@ -150,7 +152,7 @@
         app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.838" />
+        app:layout_constraintVertical_bias="0.858" />
 
     <ImageView
         android:id="@+id/profile_imageView"
@@ -162,6 +164,20 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.124" />
+        app:layout_constraintVertical_bias="0.101" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID : "
+        android:textColor="#E91E63"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Cus_unique_id"
+        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

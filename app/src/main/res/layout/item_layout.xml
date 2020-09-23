@@ -21,10 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
-        android:textAlignment="center"
         android:layout_marginTop="10dp"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Pname"
@@ -33,7 +34,8 @@
         android:layout_marginLeft="120dp"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Pprice"
@@ -42,16 +44,18 @@
         android:layout_marginLeft="120dp"
         android:textAlignment="center"
         android:textColor="#E91E63"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Pdescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
-        android:textAlignment="center"
         android:layout_marginBottom="10dp"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

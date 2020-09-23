@@ -22,9 +22,8 @@ public class AddToCart extends AppCompatActivity {
     TextView TVProdName, TVProdId, TVProdPrice, TVProdDes;
     Button addToCartBtn;
     DatabaseReference dbRef;
- //   DatabaseReference DBRef;
+    FirebaseAuth mAuth;
     long maxId=0;
- //   long count=0;
 
 
     @Override
@@ -32,6 +31,8 @@ public class AddToCart extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_to_cart);
+
+        mAuth = FirebaseAuth.getInstance();
 
         TVProdName = findViewById(R.id.tvProdName);
         TVProdId = findViewById(R.id.tvProdId);
@@ -54,8 +55,11 @@ public class AddToCart extends AppCompatActivity {
         TVProdPrice.setText(pPrice);
         TVProdDes.setText(PDes);
 
+        FirebaseUser user = mAuth.getCurrentUser();
 
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Cart").child("Customer001");
+        String uid = user.getUid();
+
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Cart").child(uid);
 
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -70,20 +74,6 @@ public class AddToCart extends AppCompatActivity {
             }
         });
 
-  /*      DBRef = FirebaseDatabase.getInstance().getReference().child("Cart").child(String.valueOf(maxId+1));
-
-        DBRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-                if(datasnapshot.exists())
-                    count=(datasnapshot.getChildrenCount());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });     */
 
 
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
