@@ -2,30 +2,70 @@ package com.example.techmart;
 
 public class Cart {
 
-    private String brand;
-    private String pName;
+    private String productId;
+    private String productName;
+    private Float unitPrice;
+    private String productDescription;
+    private Float quantity;
+    private Float netAmount;
 
     public Cart() {
     }
 
-    public Cart(String brand, String pName) {
-        this.brand = brand;
-        this.pName = pName;
+    public Cart(String productId, String productName, Float unitPrice, String productDescription, Float quantity, Float netAmount) {
+        this.productId = productId;
+        this.productName = productName;
+        this.unitPrice = unitPrice;
+        this.productDescription = productDescription;
+        this.quantity = quantity;
+        this.netAmount = netAmount;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
-    public String getpName() {
-        return pName;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setpName(String pName) {
-        this.pName = pName;
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Float getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(Float unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
+    public Float getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Float quantity) {
+        this.quantity = quantity;
+    }
+
+    public Float getNetAmount() {
+        return netAmount;
+    }
+
+    public void setNetAmount(Float netAmount) {
+        this.netAmount = netAmount;
     }
 }

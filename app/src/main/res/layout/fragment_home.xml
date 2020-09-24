@@ -116,7 +116,6 @@
         android:id="@+id/Cus_email_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="praveen@gmail.com"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

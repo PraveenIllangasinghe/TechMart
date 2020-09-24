@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,6 +25,7 @@ public class SignupActivity extends AppCompatActivity {
     Button SignUpBtn;
     TextView haveAccountTxt;
     FirebaseAuth mFirebaseAuth;
+    DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,11 @@ public class SignupActivity extends AppCompatActivity {
                                 Toast.makeText(SignupActivity.this, "Failed to Create User, Please Try Again", Toast.LENGTH_SHORT).show();
                             }
                             else {
+                                mFirebaseAuth = FirebaseAuth.getInstance();
+                                FirebaseUser user = mFirebaseAuth.getCurrentUser();
+                                String uid = user.getUid();
+                                dbRef = FirebaseDatabase.getInstance().getReference().child("Customer").child(uid);
+                                dbRef.child("Status").setValue("True");
                                 startActivity(new Intent(SignupActivity.this,demo.class));
                             }
                         }

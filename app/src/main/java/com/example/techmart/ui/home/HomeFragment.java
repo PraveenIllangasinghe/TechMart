@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class HomeFragment extends Fragment {
 
-    TextView txtCusUniId;
+    TextView txtCusUniId,txtCusEmail;
     FirebaseAuth auth;
 
     private HomeViewModel homeViewModel;
@@ -39,10 +39,14 @@ public class HomeFragment extends Fragment {
         auth = FirebaseAuth.getInstance();
 
         txtCusUniId = root.findViewById(R.id.Cus_unique_id);
+        txtCusEmail = root.findViewById(R.id.Cus_email_preview);
+
         FirebaseUser user = auth.getCurrentUser();
         String CusId = user.getUid();
+        String CusEmail = user.getEmail();
 
         txtCusUniId.setText(CusId);
+        txtCusEmail.setText(CusEmail);
 
         return root;
     }
