@@ -97,11 +97,14 @@ public class AddToCart extends AppCompatActivity implements AdapterView.OnItemSe
                 Float txt_ProPrice = Float.parseFloat(TVProdPrice.getText().toString());
                 int txt_quantity = Integer.parseInt(spinner.getSelectedItem().toString());
 
+                Float txt_net_amount = (Float) txt_ProPrice*txt_quantity;
+
                 dbRef.child(String.valueOf(maxId+1)).child("productName").setValue(txt_ProName);
                 dbRef.child(String.valueOf(maxId+1)).child("productId").setValue(txt_ProID);
                 dbRef.child(String.valueOf(maxId+1)).child("productDescription").setValue(txt_ProDes);
                 dbRef.child(String.valueOf(maxId+1)).child("unitPrice").setValue(txt_ProPrice);
                 dbRef.child(String.valueOf(maxId+1)).child("quantity").setValue(txt_quantity);
+                dbRef.child(String.valueOf(maxId+1)).child("netAmount").setValue(txt_net_amount);
             }
         });
 
