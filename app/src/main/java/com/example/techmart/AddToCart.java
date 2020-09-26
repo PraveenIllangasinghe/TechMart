@@ -27,6 +27,7 @@ public class AddToCart extends AppCompatActivity implements AdapterView.OnItemSe
     Button addToCartBtn;
     Spinner spinner;
     DatabaseReference dbRef;
+    DatabaseReference dbRef2;
     FirebaseAuth mAuth;
     long maxId=0;
 
@@ -69,9 +70,10 @@ public class AddToCart extends AppCompatActivity implements AdapterView.OnItemSe
 
         FirebaseUser user = mAuth.getCurrentUser();
 
-        String uid = user.getUid();
+        final String uid = user.getUid();
 
         dbRef = FirebaseDatabase.getInstance().getReference().child("Cart").child(uid);
+        dbRef2 = FirebaseDatabase.getInstance().getReference().child("OrderItems").child(uid);
 
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -105,6 +107,14 @@ public class AddToCart extends AppCompatActivity implements AdapterView.OnItemSe
                 dbRef.child(String.valueOf(maxId+1)).child("unitPrice").setValue(txt_ProPrice);
                 dbRef.child(String.valueOf(maxId+1)).child("quantity").setValue(txt_quantity);
                 dbRef.child(String.valueOf(maxId+1)).child("netAmount").setValue(txt_net_amount);
+
+                String itemNo = String.valueOf(maxId+1);
+
+                dbRef2.child("1").child("item"+itemNo).setValue(txt_ProName);
+                dbRef2.child("1").child("itemQuantity"+itemNo).setValue(txt_quantity);
+                dbRef2.child("1").child("itemDescription"+itemNo).setValue(txt_ProDes);
+                dbRef2.child("1").child("status").setValue("NotConfirmed");
+
             }
         });
 

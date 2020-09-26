@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.948" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/place_order_btn"
         android:layout_width="123dp"
         android:layout_height="46dp"
         android:background="#128C7E"
@@ -72,7 +72,7 @@
         android:layout_height="456dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/place_order_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView63" />

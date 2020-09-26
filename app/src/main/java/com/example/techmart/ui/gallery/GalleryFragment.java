@@ -1,5 +1,6 @@
 package com.example.techmart.ui.gallery;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.techmart.Cart;
 import com.example.techmart.CartRecyclerAdapter;
 import com.example.techmart.HelperAdapter;
+import com.example.techmart.PlaceOrderActivity;
 import com.example.techmart.ProductModel;
 import com.example.techmart.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,6 +45,7 @@ public class GalleryFragment extends Fragment {
     FirebaseAuth fbAuth;
     private double totalAmount=0.0;
     TextView Tv_tot;
+    Button place_order_btn;
 
     private GalleryViewModel galleryViewModel;
 
@@ -70,7 +73,7 @@ public class GalleryFragment extends Fragment {
         cart=new ArrayList<>();
 
         Tv_tot = root.findViewById(R.id.txt_TotalCartAmount);
-
+        place_order_btn = root.findViewById(R.id.place_order_btn);
 
 
         dbRef=FirebaseDatabase.getInstance().getReference("Cart").child(uid);
@@ -93,6 +96,17 @@ public class GalleryFragment extends Fragment {
 
             }
         });
+
+        place_order_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent place_ord_intent = new Intent(getActivity(), PlaceOrderActivity.class);
+                place_ord_intent.putExtra("TotalAmount", totalAmount);
+                startActivity(place_ord_intent);
+            }
+        });
+
+
 
         return root;
     }
