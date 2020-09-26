@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.techmart.R;
@@ -25,6 +26,7 @@ public class SignUpSeller extends AppCompatActivity {
     Button sellerSignUpBtn;
     FirebaseAuth fireAuth;
     DatabaseReference DBref;
+    TextView txt_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class SignUpSeller extends AppCompatActivity {
         email = findViewById(R.id.signUpSellerEmail);
         password = findViewById(R.id.signUpSellerPassword);
         sellerSignUpBtn = findViewById(R.id.signUpSellerBtn);
+        txt_login = findViewById(R.id.seller_txt_has_account);
 
         sellerSignUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +56,7 @@ public class SignUpSeller extends AppCompatActivity {
                 }
 
                 else if(Email.isEmpty() && Password.isEmpty()){
-                    Toast.makeText(SignUpSeller.this, "Required feilds should be filled", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpSeller.this, "Required fields should be filled", Toast.LENGTH_SHORT).show();
                 }
 
                 else if(!(Email.isEmpty() && Password.isEmpty())) {
@@ -66,8 +69,8 @@ public class SignUpSeller extends AppCompatActivity {
                                 fireAuth = FirebaseAuth.getInstance();
                                 FirebaseUser seller = fireAuth.getCurrentUser();
                                 String Sid = seller.getUid();
-                                DBref = FirebaseDatabase.getInstance().getReference().child("Seller").child(Sid);
-                                DBref.child("Status").setValue("True");
+                              //  DBref = FirebaseDatabase.getInstance().getReference().child("Seller").child(Sid);
+                              //  DBref.child("Status").setValue("True");
                                 startActivity(new Intent(SignUpSeller.this, AddProduct.class));
                             }
                         }
@@ -79,5 +82,14 @@ public class SignUpSeller extends AppCompatActivity {
                 }
             }
         });
+
+        txt_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sellerLoginIntent = new Intent(SignUpSeller.this, SellerLogin.class);
+                startActivity(sellerLoginIntent);
+            }
+        });
+
     }
 }

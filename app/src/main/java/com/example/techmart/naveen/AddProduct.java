@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import com.example.techmart.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +26,7 @@ public class AddProduct extends AppCompatActivity {
     DatabaseReference ref;
     long max = 0;
     Product Prod;
+    FirebaseAuth sellerAuth;
 
 
     @Override
@@ -32,6 +34,9 @@ public class AddProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
 
+    sellerAuth = FirebaseAuth.getInstance();
+    FirebaseUser seller_user = sellerAuth.getCurrentUser();
+    String seller_user_id = seller_user.getUid();
 
      id = findViewById(R.id.addProdIdSeller);
      name = findViewById(R.id.addProdNameSeller);
@@ -42,7 +47,7 @@ public class AddProduct extends AppCompatActivity {
 
      Prod = new Product();
 
-     ref = FirebaseDatabase.getInstance().getReference().child("Product");
+     ref = FirebaseDatabase.getInstance().getReference().child("Products").child(seller_user_id);
 
      ref.addValueEventListener(new ValueEventListener() {
          @Override
