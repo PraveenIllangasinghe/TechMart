@@ -41,6 +41,8 @@ public class GalleryFragment extends Fragment {
     CartRecyclerAdapter cartRecyclerAdapter;
     DatabaseReference dbRef;
     FirebaseAuth fbAuth;
+    private double totalAmount=0.0;
+    TextView Tv_tot;
 
     private GalleryViewModel galleryViewModel;
 
@@ -67,6 +69,8 @@ public class GalleryFragment extends Fragment {
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         cart=new ArrayList<>();
 
+        Tv_tot = root.findViewById(R.id.txt_TotalCartAmount);
+
 
 
         dbRef=FirebaseDatabase.getInstance().getReference("Cart").child(uid);
@@ -77,9 +81,11 @@ public class GalleryFragment extends Fragment {
                 for(DataSnapshot ds:snapshot.getChildren()) {
                     Cart crt = ds.getValue(Cart.class);
                     cart.add(crt);
+                    totalAmount = (double) totalAmount+crt.getNetAmount();
                 }
                 cartRecyclerAdapter = new CartRecyclerAdapter(cart);
                 recyclerview.setAdapter(cartRecyclerAdapter);
+                Tv_tot.setText(String.valueOf(totalAmount));
             }
 
             @Override
