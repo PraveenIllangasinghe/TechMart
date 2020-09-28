@@ -54,11 +54,11 @@
         app:layout_constraintVertical_bias="0.835" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/View_order_history_btn"
         android:layout_width="210dp"
         android:layout_height="52dp"
         android:background="#128C7E"
-        android:text="Remove Items From Cart"
+        android:text="View Order History"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.189"

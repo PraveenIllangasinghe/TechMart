@@ -31,7 +31,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
         ConfirmOrderBtn = findViewById(R.id.confirmOrderBtn);
 
         Intent intent = getIntent();
-        final Double tot = intent.getDoubleExtra("TotalAmount",0);
+        final Float tot = intent.getFloatExtra("TotalAmount",0);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -50,7 +50,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
                 dbRef.child("DeliveryAddress").setValue(DeliveryAddress);
                 dbRef.child("OrderDate").setValue(OrderDate);
-                dbRef.child("totalAmount").setValue(String.valueOf(tot));
+                dbRef.child("totalAmount").setValue(tot);
                 dbRef.child("status").setValue("Confirmed");
             }
         });

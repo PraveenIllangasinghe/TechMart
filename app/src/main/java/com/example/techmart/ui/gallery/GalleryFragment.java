@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.techmart.Cart;
 import com.example.techmart.CartRecyclerAdapter;
 import com.example.techmart.HelperAdapter;
+import com.example.techmart.OrderHistoryActivity;
 import com.example.techmart.PlaceOrderActivity;
 import com.example.techmart.ProductModel;
 import com.example.techmart.R;
@@ -43,9 +44,9 @@ public class GalleryFragment extends Fragment {
     CartRecyclerAdapter cartRecyclerAdapter;
     DatabaseReference dbRef;
     FirebaseAuth fbAuth;
-    private double totalAmount=0.0;
+    private float totalAmount=0;
     TextView Tv_tot;
-    Button place_order_btn;
+    Button place_order_btn, order_history_btn;
 
     private GalleryViewModel galleryViewModel;
 
@@ -74,6 +75,7 @@ public class GalleryFragment extends Fragment {
 
         Tv_tot = root.findViewById(R.id.txt_TotalCartAmount);
         place_order_btn = root.findViewById(R.id.place_order_btn);
+        order_history_btn = root.findViewById(R.id.View_order_history_btn);
 
 
         dbRef=FirebaseDatabase.getInstance().getReference("Cart").child(uid);
@@ -84,7 +86,7 @@ public class GalleryFragment extends Fragment {
                 for(DataSnapshot ds:snapshot.getChildren()) {
                     Cart crt = ds.getValue(Cart.class);
                     cart.add(crt);
-                    totalAmount = (double) totalAmount+crt.getNetAmount();
+                    totalAmount = (float) totalAmount+crt.getNetAmount();
                 }
                 cartRecyclerAdapter = new CartRecyclerAdapter(cart);
                 recyclerview.setAdapter(cartRecyclerAdapter);
@@ -103,6 +105,15 @@ public class GalleryFragment extends Fragment {
                 Intent place_ord_intent = new Intent(getActivity(), PlaceOrderActivity.class);
                 place_ord_intent.putExtra("TotalAmount", totalAmount);
                 startActivity(place_ord_intent);
+            }
+        });
+
+
+        order_history_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent order_history_intent = new Intent(getActivity(), OrderHistoryActivity.class);
+                startActivity(order_history_intent);
             }
         });
 
