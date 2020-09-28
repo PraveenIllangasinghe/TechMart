@@ -22,7 +22,7 @@ public class AddProduct extends AppCompatActivity {
 
 
     EditText id,name,price,des;
-    Button addProd, logOutSellerBtn;
+    Button addProd, logOutSellerBtn, viewButton;
     DatabaseReference ref;
     long max = 0;
     Product Prod;
@@ -42,6 +42,7 @@ public class AddProduct extends AppCompatActivity {
      name = findViewById(R.id.addProdNameSeller);
      price = findViewById(R.id.addProdPriceSeller);
      des = findViewById(R.id.addProdDesSeller);
+     viewButton = findViewById(R.id.viewProductbtn);
 
      addProd = findViewById(R.id.sellerAddProBtn);
 
@@ -90,6 +91,15 @@ public class AddProduct extends AppCompatActivity {
          }
      });
 
+     viewButton.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+
+             Intent viewProdIntent = new Intent(AddProduct.this, ViewProduct.class);
+
+             startActivity(viewProdIntent);
+         }
+     });
 
     }
 }
