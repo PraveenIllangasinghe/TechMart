@@ -59,4 +59,45 @@
     <string name="menu_slideshow">Order History</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Auth stack strings-->
+    <string name="userNameHint">User Name</string>
+    <string name="PasswordHint">Password</string>
+    <string name="confirmPasswordHint">Confirm Password</string>
+    <string name="mobileHint">Phone Number</string>
+    <string name="signInBtn">Are You a Delivery Person?</string>
+    <string name="signInBtn_">Sign In</string>
+    <string name="signUpBtn">Sign Up</string>
+    <string name="nextBtn">Next</string>
+    <string name="newPassword">New Password</string>
+    <string name="confirm">Confirm</string>
+
+    <string name="pending">Pending Deliveries</string>
+    <string name="item">Item Details</string>
+    <string name="receipt">Receipt</string>
+    <string name="history">Completed Deliveries</string>
+
+    <string name="deliverBtn">Delivered</string>
+    <string name="complete">Complete</string>
+    <string name="delete">Delete</string>
+
+
+    <!--Auth messages-->
+    <string name="userNameRequired">User name is required.</string>
+    <string name="invalidUserName">Invalid user name.</string>
+    <string name="invalidEmail">Invalid email address.</string>
+    <string name="nameRequired">Name is required.</string>
+    <string name="mobileRequired">Email is required.</string>
+    <string name="passwordRequired">Password is required.</string>
+    <string name="invalidMobile">Invalid email format.</string>
+    <string name="passwordNotMatch">Password doesn\'t match.</string>
+    <string name="invalidPassword">Invalid password format.</string>
+    <string name="passwordHelper">Password must contain at least: 1 Uppercase, 1 Lowercase, 1 Number, 6 Characters.</string>
+    <string name="login_success">Login Successful.</string>
+    <string name="registerOtpMsg">We\'ll send a verification code to this number.</string>
+    <string name="forgotPassword">Forgot Password?</string>
+
+
+    <!--delivery stack strings-->
+    <string name="toolBarTitle">Delivery</string>
 </resources>

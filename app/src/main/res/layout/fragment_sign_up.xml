@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".delivery.auth.SignUpFragment">
+
+    <data>
+        <variable
+            name="signUpForm"
+            type="com.example.techmart.delivery.dataBinding.AuthForm" />
+
+        <variable
+            name="authViewModel"
+            type="com.example.techmart.delivery.auth.SignInViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userNameLyt"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/userNameHint"
+            app:error="@{signUpForm.userNameState == true ? null : signUpForm.userName.empty ? @string/userNameRequired : signUpForm.nameInitialized ? @string/userNameRequired : null}"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userNameTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={signUpForm.userName}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLyt"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/PasswordHint"
+            app:errorIconDrawable="@null"
+            app:passwordToggleEnabled="true"
+            app:helperText="@string/passwordHelper"
+            app:error="@{signUpForm.passwordInitialized == true &amp; signUpForm.passwordState == true ? null : signUpForm.passwordInitialized == true &amp; signUpForm.password != null ? @string/invalidPassword : null }"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userNameLyt">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordTxt"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={signUpForm.password}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirmPasswordLyt"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/confirmPasswordHint"
+            app:errorIconDrawable="@null"
+            app:passwordToggleEnabled="true"
+            app:error="@{signUpForm.confirmPasswordInitialized == true &amp; signUpForm.confirmPasswordState == true ? null : signUpForm.passwordMatchState == false &amp; signUpForm.confirmPassword != null ? @string/passwordNotMatch : null}"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordLyt">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPasswordTxt"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:text="@={signUpForm.confirmPassword}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mobileLyt"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:errorIconDrawable="@null"
+            android:hint="@string/fui_email_hint"
+            app:error="@{signUpForm.mobileState == true ? null : signUpForm.mobile.empty ? @string/mobileRequired : signUpForm.mobileInitialized ? @string/invalidMobile : null}"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordLyt">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mobileTxt"
+                android:layout_width="match_parent"
+                android:inputType="textEmailAddress"
+                android:layout_height="wrap_content"
+                android:text="@={signUpForm.mobile}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <Button
+            android:id="@+id/containedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:enabled="@{signUpForm.formValidState ? true : false}"
+            android:text="@string/signUpBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mobileLyt" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

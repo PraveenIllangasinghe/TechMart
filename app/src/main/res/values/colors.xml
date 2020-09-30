@@ -3,4 +3,14 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="white">#ffff</color>
+    <color name="lack">#000000</color>
+    <color name="ash">#F6F6F6</color>
+
+    <color name="deliveryColorPrimary">#00acc1</color>
+    <color name="deliveryColorPrimaryDark">#007c91</color>
+    <color name="deliveryColorAccent">#5ddef4</color>
+    <color name="red">#AC0404</color>
+    <color name="green">#1BAE0C</color>
 </resources>

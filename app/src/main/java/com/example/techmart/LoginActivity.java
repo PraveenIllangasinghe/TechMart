@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,8 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.techmart.delivery.DeliveryActivity;
+import com.example.techmart.delivery.auth.DeliveryAuthActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,33 +32,54 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     DatabaseReference dbRef;
 
+    TextView deliveryStackTxt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.customer_username_login);
         password = findViewById(R.id.customer_Password);
         LoginBtn = findViewById(R.id.login_btn);
         createAccount = findViewById(R.id.notRegTxt);
+        deliveryStackTxt = findViewById(R.id.delStackBtn);
 
+        deliveryStackTxt.setOnClickListener(view -> {
+                Intent intent = new Intent(this, DeliveryAuthActivity.class);
+                startActivity(intent);
+                finish();
 
-        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-                if(mFirebaseUser != null) {
-                    Toast.makeText(LoginActivity.this,"You are logged in",Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(LoginActivity.this, demo.class);
-                    startActivity(i);
+        });
+
+        SharedPreferences pref = getSharedPreferences("deliverAuthState", MODE_PRIVATE);
+        if(pref.getBoolean("state", false))
+        {
+            Intent intent = new Intent(this, DeliveryActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else {
+
+            mFirebaseAuth = FirebaseAuth.getInstance();
+
+            mAuthStateListener = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                    FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
+                    if(mFirebaseUser != null) {
+                        Toast.makeText(LoginActivity.this,"You are logged in",Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(LoginActivity.this, demo.class);
+                        startActivity(i);
+                    }
+                    else {
+                        Toast.makeText(LoginActivity.this,"Please Login",Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else {
-                    Toast.makeText(LoginActivity.this,"Please Login",Toast.LENGTH_SHORT).show();
-                }
-            }
-        };
+            };
+        }
+
 
 
         LoginBtn.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +151,25 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+        SharedPreferences pref = getSharedPreferences("deliverAuthState", MODE_PRIVATE);
+        if(pref.getBoolean("state", false))
+        {
+            Intent intent = new Intent(this, DeliveryActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else {
+            mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mFirebaseAuth != null)
+        {
+            mFirebaseAuth.removeAuthStateListener(mAuthStateListener);
+        }
+
     }
 }
