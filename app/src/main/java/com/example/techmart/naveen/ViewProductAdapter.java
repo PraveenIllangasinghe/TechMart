@@ -1,5 +1,6 @@
 package com.example.techmart.naveen;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,7 @@ public class ViewProductAdapter extends RecyclerView.Adapter<ViewProductAdapter.
     }
 
 
-    public class viewProdViewHolder extends RecyclerView.ViewHolder{
+    public class viewProdViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView pid,pName,pPrice,pDes;
 
@@ -63,6 +64,20 @@ public class ViewProductAdapter extends RecyclerView.Adapter<ViewProductAdapter.
             pName = itemView.findViewById(R.id.prodNameLayout);
             pPrice = itemView.findViewById(R.id.prodPriceLayout);
             pDes = itemView.findViewById(R.id.prodDesLayout);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int location = getAdapterPosition();
+            Product pr1 = newProdList.get(location);
+
+            Intent delProdIntent = new Intent(view.getContext(),DelProduct.class);
+
+            delProdIntent.putExtra("Location", location);
+
+            itemView.getContext().startActivity(delProdIntent);
         }
     }
 
