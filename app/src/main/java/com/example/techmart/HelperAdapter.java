@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.ViewHolder
 
 
     List<ProductModel> RetrieveList;
+    int []arr={R.drawable.power, R.drawable.cpu, R.drawable.monitor, R.drawable.motherboard, R.drawable.graphiccard, R.drawable.mouse, R.drawable.power, R.drawable.ram};
 
 
     public HelperAdapter(List<ProductModel> retrieveList) {
@@ -47,6 +49,7 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.ViewHolder
         viewHolderClass.pname.setText(productModel.getProductName());
         viewHolderClass.pprice.setText(productModel.getPrice().toString());
         viewHolderClass.pdescription.setText(productModel.getDescription());
+        viewHolderClass.proImage.setImageResource(arr[position]);
    //     Picasso.get().load(RetrieveList.get(position).getProductImage()).into((Target) viewHolderClass.pimage);
 
 
@@ -59,6 +62,7 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.ViewHolder
 
     public class ViewHolderClass extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView pid,pname,pprice,pdescription;
+        ImageView proImage;
         RelativeLayout relative;
 
         public ViewHolderClass(@NonNull View itemView) {
@@ -67,6 +71,7 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.ViewHolder
             pname=itemView.findViewById(R.id.Pname);
             pprice=itemView.findViewById(R.id.Pprice);
             pdescription=itemView.findViewById(R.id.Pdescription);
+            proImage=itemView.findViewById(R.id.productImageView);
    //         pimage=itemView.findViewById(R.id.productImageView);
             itemView.setOnClickListener(this);
 
