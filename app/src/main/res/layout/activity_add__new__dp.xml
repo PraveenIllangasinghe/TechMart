@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#273443">
+
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="324dp"
+        android:layout_height="60dp"
+        android:text="Add delivery rider to the system"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#F8EEEE"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <EditText
+        android:id="@+id/inputRiderEmail"
+        android:layout_width="315dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:hint="Enter The Rider Email"
+        android:inputType="textPersonName"
+        android:textColor="#F8EEEE"
+        android:textColorHint="#FAF5F5"
+        android:textColorLink="#EFE6E6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439" />
+
+    <EditText
+        android:id="@+id/inputRiderName"
+        android:layout_width="314dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Enter The Rider Name"
+        android:inputType="textPersonName"
+        android:textColor="#F8EEEE"
+        android:textColorHint="#FAF5F5"
+        android:textColorLink="#EFE6E6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <EditText
+        android:id="@+id/inputContactNumber"
+        android:layout_width="311dp"
+        android:layout_height="61dp"
+        android:ems="10"
+        android:hint="Enter The Contact Number"
+        android:inputType="textPersonName"
+        android:textColor="#F8EEEE"
+        android:textColorHint="#FAF5F5"
+        android:textColorLink="#EFE6E6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57" />
+
+    <EditText
+        android:id="@+id/inputRiderAddress"
+        android:layout_width="317dp"
+        android:layout_height="57dp"
+        android:ems="10"
+        android:hint="Enter The Rider Address"
+        android:inputType="textPersonName"
+        android:textColor="#F8EEEE"
+        android:textColorHint="#FAF5F5"
+        android:textColorLink="#EFE6E6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.728" />
+
+    <Button
+        android:id="@+id/butAddNew"
+        android:layout_width="177dp"
+        android:layout_height="54dp"
+        android:background="#009688"
+        android:shadowColor="#30BF35"
+        android:text="Add"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#0E0D0D"
+        android:textColorHighlight="#8C2828"
+        android:textColorHint="#E44141"
+        android:textColorLink="#E82222"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.936" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
