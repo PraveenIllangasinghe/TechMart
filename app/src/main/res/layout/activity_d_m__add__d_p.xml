@@ -8,52 +8,49 @@
     android:orientation="vertical"
     tools:context=".ishini.DM_Add_DP">
 
-  <androidx.appcompat.widget.Toolbar
-      android:id="@+id/toolbar3"
-      android:layout_width="409dp"
-      android:layout_height="wrap_content"
-      android:background="?attr/colorPrimary"
-      android:minHeight="?attr/actionBarSize"
-      android:theme="?attr/actionBarTheme" />
-
   <TextView
       android:id="@+id/textView49"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Add deliver rider for order"
+      android:shadowColor="#EF0D0D"
+      android:text="                Add deliver rider for order"
       android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
   <EditText
-      android:id="@+id/editTextTextPersonName15"
+      android:id="@+id/inputOrderNo"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:ems="10"
+      android:hint="Please Enter The Order No"
       android:inputType="textPersonName"
-      android:text="Name" />
+      android:textColor="#F4EAEA" />
 
   <EditText
-      android:id="@+id/editTextTextPersonName16"
+      android:id="@+id/inputRiderName"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:ems="10"
+      android:hint="Please Enter Rider Name"
       android:inputType="textPersonName"
-      android:text="Name" />
+      android:textColor="#F4EAEA" />
 
   <EditText
-      android:id="@+id/editTextTextPersonName17"
+      android:id="@+id/inputRiderId"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:ems="10"
+      android:hint="Please Enter Rider ID"
       android:inputType="textPersonName"
-      android:text="Name" />
+      android:textColor="#F4EAEA" />
 
   <EditText
-      android:id="@+id/editTextTextPersonName18"
+      android:id="@+id/inputVehicleId"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:ems="10"
+      android:hint="Please Enter The Vehicle ID"
       android:inputType="textPersonName"
-      android:text="Name" />
+      android:textColor="#F4EAEA" />
 
   <LinearLayout
       android:layout_width="match_parent"

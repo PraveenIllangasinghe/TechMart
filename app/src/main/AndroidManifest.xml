@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.techmart" >
+    package="com.example.techmart">
 
     <application
         android:allowBackup="true"
@@ -8,16 +8,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".ishini.DM_Add_DP" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".ishini.DP_TotalAmount">
         </activity>
-        <activity android:name=".ishini.DM_My_Account" >
+        <activity android:name=".ishini.DM_SearchDp">
+
+        </activity>
+        <activity android:name=".ishini.DManger_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ishini.DP_UpdateDelete" >
+
+        </activity>
+
+        <activity android:name=".ishini.Add_New_Dp" />
+        <activity android:name=".ishini.DM_Add_DP" />
+        <activity android:name=".ishini.DM_My_Account" />
         <activity android:name=".OrderView" />
         <activity android:name=".UpdateOrderDetails" />
         <activity android:name=".AddOrder" />
@@ -27,7 +37,7 @@
             android:label="@string/title_activity_demo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Home" />
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".LoginActivity">
 
             <!--
             <intent-filter>

@@ -57,6 +57,9 @@
     <string name="menu_home">My Account</string>
     <string name="menu_gallery">My Cart</string>
     <string name="menu_slideshow">Order History</string>
+    <string name="search_title_rider">Order History</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
