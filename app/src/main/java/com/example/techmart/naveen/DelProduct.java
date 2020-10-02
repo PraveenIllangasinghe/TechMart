@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class DelProduct extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    Button deleteBtn;
+    Button deleteBtn,updateBtn;
     FirebaseAuth fireAuth;
     DatabaseReference DBref;
 
@@ -29,7 +29,9 @@ public class DelProduct extends AppCompatActivity implements AdapterView.OnItemS
 
         Intent pIntent = getIntent();
 
+
         deleteBtn = findViewById(R.id.delBtn);
+        updateBtn = findViewById(R.id.updBtn);
 
         final int location = pIntent.getIntExtra("Location",0);
 
@@ -46,6 +48,17 @@ public class DelProduct extends AppCompatActivity implements AdapterView.OnItemS
                 Toast.makeText(DelProduct.this,"Product deleted",Toast.LENGTH_SHORT).show();
 
                 DBref.removeValue();
+            }
+        });
+
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent updIntent = new Intent(DelProduct.this, UpdateProduct.class);
+                updIntent.putExtra("loc", location);
+                startActivity(updIntent);
+
+
             }
         });
     }
