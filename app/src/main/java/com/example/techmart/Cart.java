@@ -68,4 +68,11 @@ public class Cart {
     public void setNetAmount(Float netAmount) {
         this.netAmount = netAmount;
     }
+
+    public float calculateNetAmountOfItem(int quan, float proPrice){
+        float q = (float) quan;
+        this.quantity = q;
+        this.unitPrice = proPrice;
+        return this.quantity*this.unitPrice;
+    }
 }
