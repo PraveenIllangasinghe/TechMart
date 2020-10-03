@@ -30,7 +30,7 @@ public class DP_UpdateDelete extends AppCompatActivity {
         setContentView(R.layout.activity_d_p__update_delete);
         final DeliveryPerson dpx = (DeliveryPerson) getIntent().getSerializableExtra("current_rider");
         txtRiderName = findViewById(R.id.inputRiderName);
-        txtRiderEmail = findViewById(R.id.inputRiderEmail);
+        txtRiderEmail = findViewById(R.id.txtOrderId);
         txtRiderContactNo = findViewById(R.id.inputContactNumber);
         txtRiderAddress = findViewById(R.id.inputRiderAddress);
 
@@ -43,6 +43,7 @@ public class DP_UpdateDelete extends AppCompatActivity {
         txtRiderAddress.setText(dpx.getRiderAddress());
         txtRiderEmail.setText(dpx.getRiderEmail());
         txtRiderContactNo.setText(dpx.getRiderContactNum());
+
         butViewNew.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
