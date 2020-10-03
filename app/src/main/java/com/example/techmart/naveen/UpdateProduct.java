@@ -48,6 +48,7 @@ public class UpdateProduct extends AppCompatActivity {
                 final String NameUpd = Name.getText().toString();
                 final String PriceUpd = Price.getText().toString();
                 final String DescUpd = Desc.getText().toString();
+                final float uprice = Float.parseFloat(PriceUpd);
 
                 fireAuth = fireAuth.getInstance();
                 FirebaseUser fbUser = fireAuth.getCurrentUser();
@@ -61,7 +62,7 @@ public class UpdateProduct extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         DBref.child("productName").setValue(NameUpd);
-                        DBref.child("price").setValue(PriceUpd);
+                        DBref.child("price").setValue(uprice);
                         DBref.child("description").setValue(DescUpd);
                     }
 

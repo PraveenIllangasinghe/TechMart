@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.techmart.R;
@@ -21,13 +22,31 @@ public class DelProduct extends AppCompatActivity implements AdapterView.OnItemS
     Button deleteBtn,updateBtn;
     FirebaseAuth fireAuth;
     DatabaseReference DBref;
+    TextView prod_name, prod_id, prod_price, prod_des;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_del_product);
 
+        prod_id = findViewById(R.id.editProdId);
+        prod_name = findViewById(R.id.editProdName);
+        prod_price = findViewById(R.id.editProdPrice);
+        prod_des = findViewById(R.id.editProdDes);
+
         Intent pIntent = getIntent();
+
+        String Eid = pIntent.getStringExtra("editedId");
+        String Ename = pIntent.getStringExtra("editedName");
+        Float Eprice = pIntent.getFloatExtra("editedPrice",0);
+        String EDes = pIntent.getStringExtra("editedDes");
+
+        String EPrice = Eprice.toString();
+
+        prod_id.setText(Eid);
+        prod_name.setText(Ename);
+        prod_price.setText(EPrice);
+        prod_des.setText(EDes);
 
 
         deleteBtn = findViewById(R.id.delBtn);

@@ -72,8 +72,17 @@ public class ViewProductAdapter extends RecyclerView.Adapter<ViewProductAdapter.
         public void onClick(View view) {
             int location = getAdapterPosition();
             Product pr1 = newProdList.get(location);
+            String editId = pr1.getProductId();
+            String editName = pr1.getProductName();
+            Float editPrice = pr1.getPrice();
+            String editDes = pr1.getDescription();
 
             Intent delProdIntent = new Intent(view.getContext(),DelProduct.class);
+
+            delProdIntent.putExtra("editedId", editId);
+            delProdIntent.putExtra("editedName",editName);
+            delProdIntent.putExtra("editedPrice",editPrice);
+            delProdIntent.putExtra("editedDes",editDes);
 
             delProdIntent.putExtra("Location", location);
 
