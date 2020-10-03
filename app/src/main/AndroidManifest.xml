@@ -9,6 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".naveen.DelProduct"></activity>
+        <activity android:name=".naveen.ViewProduct" />
+        <activity android:name=".naveen.SellerLogin" />
+        <activity android:name=".naveen.UpdateProduct" />
+        <activity android:name=".naveen.SignUpSeller">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".naveen.AddProduct" />
+        <activity android:name=".OrderView" />
         <activity android:name=".OrderHistoryActivity"></activity>
         <activity android:name=".PlaceOrderActivity" />
         <activity android:name=".EditCartItemActivity" />
@@ -43,14 +56,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Home" />
         <activity android:name=".LoginActivity">
-
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
     </application>
 
