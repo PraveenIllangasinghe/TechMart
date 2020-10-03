@@ -26,6 +26,7 @@ public class EditCartItemActivity extends AppCompatActivity implements AdapterVi
     TextView txtCartId, txtCartName, txtCartDesc, txtCartUnitPrice, txtCartQuantity, txtCartNetAmount;
     Button cart_item_update_btn, cart_item_delete_btn;
     DatabaseReference dbReference;
+    DatabaseReference dbReference2;
     FirebaseAuth firebaseAuth;
     Spinner spn;
 
@@ -96,8 +97,10 @@ public class EditCartItemActivity extends AppCompatActivity implements AdapterVi
                 FirebaseUser user1 = firebaseAuth.getCurrentUser();
 
                 final String uId = user1.getUid();
+                final String ordItemUpd = String.valueOf(POS+1);
 
                 dbReference = FirebaseDatabase.getInstance().getReference().child("Cart").child(uId).child(String.valueOf(POS+1));
+                dbReference2 = FirebaseDatabase.getInstance().getReference().child("OrderItems").child(uId).child("1");
              //   Intent updIntent = new Intent(EditCartItemActivity.this, UpdateCartItem.class);
                final int txt_quantity = Integer.parseInt(spn.getSelectedItem().toString());
                 Toast.makeText(EditCartItemActivity.this, "Update Item", Toast.LENGTH_SHORT).show();
@@ -108,6 +111,18 @@ public class EditCartItemActivity extends AppCompatActivity implements AdapterVi
                        Float up = snapshot.child("unitPrice").getValue(Float.class);
                         dbReference.child("quantity").setValue(txt_quantity);
                         dbReference.child("netAmount").setValue(up*txt_quantity);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                dbReference2.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        dbReference2.child("itemQuantity"+ordItemUpd).setValue(txt_quantity);
                     }
 
                     @Override

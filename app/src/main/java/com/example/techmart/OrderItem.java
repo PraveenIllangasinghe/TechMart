@@ -12,12 +12,13 @@ public class OrderItem {
     private String itemDescription2;
     private String DeliveryAddress;
     private String status;
+    private String orderId;
 
 
     public OrderItem() {
     }
 
-    public OrderItem(String orderDate, Float totalAmount, String item1, String item2, int itemQuantity1, int itemQuantity2, String itemDescription1, String itemDescription2, String deliveryAddress, String status) {
+    public OrderItem(String orderDate, Float totalAmount, String item1, String item2, int itemQuantity1, int itemQuantity2, String itemDescription1, String itemDescription2, String deliveryAddress, String status, String orderId) {
         OrderDate = orderDate;
         this.totalAmount = totalAmount;
         this.item1 = item1;
@@ -28,6 +29,7 @@ public class OrderItem {
         this.itemDescription2 = itemDescription2;
         DeliveryAddress = deliveryAddress;
         this.status = status;
+        this.orderId = orderId;
     }
 
     public String getOrderDate() {

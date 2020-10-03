@@ -15,11 +15,17 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.techmart.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HomeFragment extends Fragment {
 
-    TextView txtCusUniId,txtCusEmail;
+    TextView txtCusUniId,txtCusEmail,txtCusPhone,txtCusAddress,txtCusUN;
     FirebaseAuth auth;
+    DatabaseReference dbRef;
 
     private HomeViewModel homeViewModel;
 
@@ -40,6 +46,9 @@ public class HomeFragment extends Fragment {
 
         txtCusUniId = root.findViewById(R.id.Cus_unique_id);
         txtCusEmail = root.findViewById(R.id.Cus_email_preview);
+        txtCusUN = root.findViewById(R.id.Cus_username_preview);
+        txtCusAddress = root.findViewById(R.id.Cus_address_preview);
+        txtCusPhone = root.findViewById(R.id.Cus_phone_preview);
 
         FirebaseUser user = auth.getCurrentUser();
         String CusId = user.getUid();
@@ -47,6 +56,27 @@ public class HomeFragment extends Fragment {
 
         txtCusUniId.setText(CusId);
         txtCusEmail.setText(CusEmail);
+
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Customer").child(CusId);
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String un = snapshot.child("username").getValue(String.class);
+                String ad = snapshot.child("address").getValue(String.class);
+                String ph = snapshot.child("phoneNo").getValue(String.class);
+
+                txtCusAddress.setText(ad);
+                txtCusUN.setText(un);
+                txtCusPhone.setText(ph);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         return root;
     }

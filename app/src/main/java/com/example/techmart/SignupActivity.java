@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupActivity extends AppCompatActivity {
 
-    EditText email, password;
+    EditText email, password, username, phone, address;
     Button SignUpBtn;
     TextView haveAccountTxt;
     FirebaseAuth mFirebaseAuth;
@@ -36,6 +36,9 @@ public class SignupActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.editTextTextEmailAddress);
         password = findViewById(R.id.editTextTextPassword);
+        username = findViewById(R.id.cusUNSignup);
+        phone = findViewById(R.id.cusContactSignup);
+        address = findViewById(R.id.cusAddSignup);
         SignUpBtn = findViewById(R.id.signupBtn);
         haveAccountTxt = findViewById(R.id.haveAccountTxt);
 
@@ -44,6 +47,9 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String Email = email.getText().toString();
                 String Pass = password.getText().toString();
+                final String UN = username.getText().toString();
+                final String PhoneNo = phone.getText().toString();
+                final String addr = address.getText().toString();
 
                 if (Email.isEmpty()) {
                     email.setError("Please Enter Your Email Address");
@@ -68,7 +74,11 @@ public class SignupActivity extends AppCompatActivity {
                                 FirebaseUser user = mFirebaseAuth.getCurrentUser();
                                 String uid = user.getUid();
                                 dbRef = FirebaseDatabase.getInstance().getReference().child("Customer").child(uid);
-                                dbRef.child("Status").setValue("True");
+                                float ct = 1;
+                                dbRef.child("Count").setValue(ct);
+                                dbRef.child("username").setValue(UN);
+                                dbRef.child("address").setValue(addr);
+                                dbRef.child("phoneNo").setValue(PhoneNo);
                                 startActivity(new Intent(SignupActivity.this,demo.class));
                             }
                         }

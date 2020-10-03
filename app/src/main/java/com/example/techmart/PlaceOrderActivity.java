@@ -18,6 +18,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
     EditText PlaceOrderAddress, PlaceOrderDate;
     Button ConfirmOrderBtn;
     DatabaseReference dbRef;
+    DatabaseReference dbRef2;
     FirebaseAuth firebaseAuth;
 
 
@@ -32,14 +33,16 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final Float tot = intent.getFloatExtra("TotalAmount",0);
+        final float count = intent.getFloatExtra("Counter",0);
+        final int i = (int)count;
 
         firebaseAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        String uid = user.getUid();
+        final String uid = user.getUid();
 
-        dbRef = FirebaseDatabase.getInstance().getReference().child("OrderItems").child(uid).child("1");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("OrderItems").child(uid).child(String.valueOf(i));
 
         ConfirmOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,11 +50,19 @@ public class PlaceOrderActivity extends AppCompatActivity {
 
                 String DeliveryAddress = PlaceOrderAddress.getText().toString();
                 String OrderDate = PlaceOrderDate.getText().toString();
+                String I = String.valueOf(i);
 
                 dbRef.child("DeliveryAddress").setValue(DeliveryAddress);
                 dbRef.child("OrderDate").setValue(OrderDate);
                 dbRef.child("totalAmount").setValue(tot);
                 dbRef.child("status").setValue("Confirmed");
+                dbRef.child("orderId").setValue(uid+I);
+
+                float updCount = i+1;
+
+                dbRef2 = FirebaseDatabase.getInstance().getReference().child("Customer").child(uid);
+                dbRef2.child("Count").setValue(updCount);
+
             }
         });
 
