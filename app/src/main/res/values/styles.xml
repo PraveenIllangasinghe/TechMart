@@ -8,6 +8,12 @@
         <item name="colorSecondary">#273443</item>
     </style>
 
+    <style name="MaterialDeliveryTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/deliveryColorPrimary</item>
+        <item name="colorPrimaryDark">@color/deliveryColorPrimaryDark</item>
+        <item name="colorAccent">@color/deliveryColorAccent</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/delivery_map"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.techmart.delivery.DeliveryListFragment"
+        android:label="delivery_main"
+        tools:layout="@layout/delivery_list_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_deliveryItemViewFragment"
+            app:destination="@id/deliveryItemViewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_deliveryHistoryFragment"
+            app:destination="@id/deliveryHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deliveryHistoryFragment"
+        android:name="com.example.techmart.delivery.DeliveryHistoryFragment"
+        android:label="fragment_delivery_history"
+        tools:layout="@layout/fragment_delivery_history" >
+        <action
+            android:id="@+id/action_deliveryHistoryFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deliveryItemViewFragment"
+        android:name="com.example.techmart.delivery.DeliveryItemViewFragment"
+        android:label="fragment_delivery_item_view"
+        tools:layout="@layout/fragment_delivery_item_view" >
+        <action
+            android:id="@+id/action_deliveryItemViewFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_deliveryItemViewFragment_to_deliveryHistoryFragment"
+            app:destination="@id/deliveryHistoryFragment" />
+    </fragment>
+
+</navigation>
