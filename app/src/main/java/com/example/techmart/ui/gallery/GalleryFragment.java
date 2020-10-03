@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +27,7 @@ import com.example.techmart.OrderHistoryActivity;
 import com.example.techmart.PlaceOrderActivity;
 import com.example.techmart.ProductModel;
 import com.example.techmart.R;
+import com.example.techmart.SignupActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,6 +45,7 @@ public class GalleryFragment extends Fragment {
     RecyclerView recyclerview;
     CartRecyclerAdapter cartRecyclerAdapter;
     DatabaseReference dbRef;
+    DatabaseReference dbRef2;
     FirebaseAuth fbAuth;
     private float totalAmount=0;
     TextView Tv_tot;
@@ -67,7 +70,7 @@ public class GalleryFragment extends Fragment {
 
         FirebaseUser cus_user = fbAuth.getCurrentUser();
 
-        String uid = cus_user.getUid();
+        final String uid = cus_user.getUid();
 
         recyclerview= (RecyclerView) root.findViewById(R.id.Cart_recycler_view);
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -102,9 +105,30 @@ public class GalleryFragment extends Fragment {
         place_order_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent place_ord_intent = new Intent(getActivity(), PlaceOrderActivity.class);
+
+                dbRef2=FirebaseDatabase.getInstance().getReference("Customer").child(uid);
+                dbRef2.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                      float count = snapshot.child("Count").getValue(Float.class);
+                        Intent place_ord_intent = new Intent(getActivity(), PlaceOrderActivity.class);
+                        place_ord_intent.putExtra("TotalAmount", totalAmount);
+                        place_ord_intent.putExtra("Counter", count);
+                        startActivity(place_ord_intent);
+                        Toast.makeText(getActivity(), String.valueOf(count), Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            /*    Intent place_ord_intent = new Intent(getActivity(), PlaceOrderActivity.class);
                 place_ord_intent.putExtra("TotalAmount", totalAmount);
-                startActivity(place_ord_intent);
+                place_ord_intent.putExtra("Counter", count);
+                startActivity(place_ord_intent);    */
             }
         });
 

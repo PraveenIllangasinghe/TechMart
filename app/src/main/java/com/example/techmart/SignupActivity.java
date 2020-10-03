@@ -68,7 +68,8 @@ public class SignupActivity extends AppCompatActivity {
                                 FirebaseUser user = mFirebaseAuth.getCurrentUser();
                                 String uid = user.getUid();
                                 dbRef = FirebaseDatabase.getInstance().getReference().child("Customer").child(uid);
-                                dbRef.child("Status").setValue("True");
+                                float ct = 1;
+                                dbRef.child("Count").setValue(ct);
                                 startActivity(new Intent(SignupActivity.this,demo.class));
                             }
                         }

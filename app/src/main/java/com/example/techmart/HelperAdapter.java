@@ -22,7 +22,7 @@ public class HelperAdapter extends RecyclerView.Adapter<HelperAdapter.ViewHolder
 
 
     List<ProductModel> RetrieveList;
-    int []arr={R.drawable.power, R.drawable.cpu, R.drawable.monitor, R.drawable.motherboard, R.drawable.graphiccard, R.drawable.mouse, R.drawable.power, R.drawable.ram};
+    int []arr={R.drawable.power, R.drawable.fan, R.drawable.monitor, R.drawable.motherboard, R.drawable.graphiccard, R.drawable.cpu, R.drawable.ram, R.drawable.mouse};
 
 
     public HelperAdapter(List<ProductModel> retrieveList) {

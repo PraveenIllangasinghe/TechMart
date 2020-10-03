@@ -28,6 +28,7 @@ public class AddToCart extends AppCompatActivity implements AdapterView.OnItemSe
     Spinner spinner;
     DatabaseReference dbRef;
     DatabaseReference dbRef2;
+    DatabaseReference dbRef3;
     FirebaseAuth mAuth;
     long maxId=0;
 
@@ -74,6 +75,7 @@ public class AddToCart extends AppCompatActivity implements AdapterView.OnItemSe
 
         dbRef = FirebaseDatabase.getInstance().getReference().child("Cart").child(uid);
         dbRef2 = FirebaseDatabase.getInstance().getReference().child("OrderItems").child(uid);
+        dbRef3 = FirebaseDatabase.getInstance().getReference().child("Customer").child(uid);
 
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -93,11 +95,11 @@ public class AddToCart extends AppCompatActivity implements AdapterView.OnItemSe
         addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String txt_ProName = TVProdName.getText().toString();
+                final String txt_ProName = TVProdName.getText().toString();
                 String txt_ProID = TVProdId.getText().toString();
-                String txt_ProDes = TVProdDes.getText().toString();
+                final String txt_ProDes = TVProdDes.getText().toString();
                 Float txt_ProPrice = Float.parseFloat(TVProdPrice.getText().toString());
-                int txt_quantity = Integer.parseInt(spinner.getSelectedItem().toString());
+                final int txt_quantity = Integer.parseInt(spinner.getSelectedItem().toString());
 
             //    Float txt_net_amount = (Float) txt_ProPrice*txt_quantity;
                 Cart ct1 = new Cart();
@@ -110,12 +112,31 @@ public class AddToCart extends AppCompatActivity implements AdapterView.OnItemSe
                 dbRef.child(String.valueOf(maxId+1)).child("quantity").setValue(txt_quantity);
                 dbRef.child(String.valueOf(maxId+1)).child("netAmount").setValue(txt_net_amount);
 
-                String itemNo = String.valueOf(maxId+1);
+               final String itemNo = String.valueOf(maxId+1);
 
-                dbRef2.child("1").child("item"+itemNo).setValue(txt_ProName);
-                dbRef2.child("1").child("itemQuantity"+itemNo).setValue(txt_quantity);
-                dbRef2.child("1").child("itemDescription"+itemNo).setValue(txt_ProDes);
-                dbRef2.child("1").child("status").setValue("NotConfirmed");
+                dbRef3.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        float count = snapshot.child("Count").getValue(Float.class);
+                        int j = (int) count;
+
+                        dbRef2.child(String.valueOf(j)).child("item"+itemNo).setValue(txt_ProName);
+                        dbRef2.child(String.valueOf(j)).child("itemQuantity"+itemNo).setValue(txt_quantity);
+                        dbRef2.child(String.valueOf(j)).child("itemDescription"+itemNo).setValue(txt_ProDes);
+                        dbRef2.child(String.valueOf(j)).child("status").setValue("NotConfirmed");
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+         /*       dbRef2.child(String.valueOf(j)).child("item"+itemNo).setValue(txt_ProName);
+                dbRef2.child(String.valueOf(j)).child("itemQuantity"+itemNo).setValue(txt_quantity);
+                dbRef2.child(String.valueOf(j)).child("itemDescription"+itemNo).setValue(txt_ProDes);
+                dbRef2.child(String.valueOf(j)).child("status").setValue("NotConfirmed");   */
 
             }
         });
