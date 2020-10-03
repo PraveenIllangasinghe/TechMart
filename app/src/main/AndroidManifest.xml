@@ -28,14 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ishini.DP_UpdateDelete" >
-
-        </activity>
-
+        <activity android:name=".ishini.DP_UpdateDelete"></activity>
         <activity android:name=".ishini.Add_New_Dp" />
         <activity android:name=".ishini.DM_Add_DP" />
+        <activity android:name=".ishini.DM_Order_Search" />
+        <activity android:name=".ishini.DM_AssignOrder" />
         <activity android:name=".ishini.DM_My_Account" />
-        <activity android:name=".OrderView" />
         <activity android:name=".UpdateOrderDetails" />
         <activity android:name=".AddOrder" />
         <activity android:name=".UpdateCustomerAccount" />

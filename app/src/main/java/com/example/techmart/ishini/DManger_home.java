@@ -52,7 +52,8 @@ public class DManger_home extends AppCompatActivity {
         button14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DManger_home.this, DM_Add_DP.class);
+//                Intent intent = new Intent(DManger_home.this, DM_AssignOrder.class);
+                Intent intent = new Intent(DManger_home.this, DM_Order_Search.class);
                 startActivity(intent);
             }
         });
