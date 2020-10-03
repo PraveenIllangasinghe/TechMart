@@ -58,7 +58,7 @@
         android:id="@+id/Cus_profile_password_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/password"
+        android:text="Address"
         android:textColor="#009688"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -88,7 +88,6 @@
         android:id="@+id/Cus_username_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Praveen"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -126,32 +125,30 @@
         app:layout_constraintVertical_bias="0.592" />
 
     <TextView
-        android:id="@+id/Cus_password_preview"
+        android:id="@+id/Cus_address_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="praveen123"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.731" />
+        app:layout_constraintVertical_bias="0.733" />
 
     <TextView
         android:id="@+id/Cus_phone_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0716754678"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.858" />
+        app:layout_constraintVertical_bias="0.86" />
 
     <ImageView
         android:id="@+id/profile_imageView"
