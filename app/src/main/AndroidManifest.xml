@@ -33,10 +33,6 @@
         <activity android:name=".OrderHistoryActivity"></activity>
         <activity android:name=".PlaceOrderActivity" />
         <activity android:name=".EditCartItemActivity" />
-        <activity android:name=".AddToCart" />
-        <activity android:name=".NewActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".OrderView" />
         <activity android:name=".ishini.DP_TotalAmount">
         </activity>
         <activity android:name=".ishini.DM_SearchDp">
@@ -56,7 +52,6 @@
         <activity android:name=".ishini.DM_AssignOrder" />
         <activity android:name=".ishini.DM_My_Account" />
         <activity android:name=".UpdateOrderDetails" />
-        <activity android:name=".AddOrder" />
         <activity android:name=".UpdateCustomerAccount" />
         <activity
             android:name=".demo"
