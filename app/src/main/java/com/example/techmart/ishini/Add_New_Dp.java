@@ -18,8 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.UUID;
-
 public class Add_New_Dp extends AppCompatActivity {
     EditText txtRiderName,txtRiderContactNo,txtRiderEmail,txtRiderAddress;
     Button butAddTonew;
@@ -33,7 +31,7 @@ public class Add_New_Dp extends AppCompatActivity {
         setContentView(R.layout.activity_add__new__dp);
 
         txtRiderName = findViewById(R.id.inputRiderName);
-        txtRiderEmail = findViewById(R.id.inputRiderEmail);
+        txtRiderEmail = findViewById(R.id.txtOrderId);
         txtRiderContactNo = findViewById(R.id.inputContactNumber);
         txtRiderAddress=findViewById(R.id.inputRiderAddress);
 
