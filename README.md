@@ -11,7 +11,7 @@
 * complete delivery & view receipt
 * update completed deliveries list
 
-## Architecture - ![MVVM](https://developer.android.com/jetpack/guide)
+## Architecture - [MVVM](https://developer.android.com/jetpack/guide)
 
 ## Guide lined to run the feature
 * You can't have any pending deliveries once you signup into the app. Delivery manager need to assign you to some deliveries to update your pending delivery lisdt as well as to work all the relative CRUD operations. So for the demo perpose you can uncomment line 105 - 123 in DeliveryListFragment.java file & just run the application. It will provide you some mock data while running the appplication. 
