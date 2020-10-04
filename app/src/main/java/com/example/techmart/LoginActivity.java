@@ -26,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LoginActivity extends AppCompatActivity {
 
     EditText email, password;
-    Button LoginBtn;
+    Button LoginBtn, selectUserBtn;
     TextView createAccount;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         LoginBtn = findViewById(R.id.login_btn);
         createAccount = findViewById(R.id.notRegTxt);
         deliveryStackTxt = findViewById(R.id.delStackBtn);
+        selectUserBtn = findViewById(R.id.SelectUserBtn);
 
         deliveryStackTxt.setOnClickListener(view -> {
                 Intent intent = new Intent(this, DeliveryAuthActivity.class);
@@ -144,6 +145,14 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });     */
+
+     selectUserBtn.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+            Intent selectUserIntent = new Intent(LoginActivity.this, SelectUserActivity.class);
+            startActivity(selectUserIntent);
+         }
+     });
 
 
     }
