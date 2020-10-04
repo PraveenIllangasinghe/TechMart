@@ -18,7 +18,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/userNameLyt"
@@ -29,6 +30,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/userNameHint"
+            android:textColorHint="@color/white"
             app:error="@{signUpForm.userNameState == true ? null : signUpForm.userName.empty ? @string/userNameRequired : signUpForm.nameInitialized ? @string/userNameRequired : null}"
             app:errorEnabled="true"
             app:errorIconDrawable="@null"
@@ -41,6 +43,7 @@
                 android:id="@+id/userNameTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="@={signUpForm.userName}" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -56,6 +59,7 @@
             android:hint="@string/PasswordHint"
             app:errorIconDrawable="@null"
             app:passwordToggleEnabled="true"
+            android:textColorHint="@color/white"
             app:helperText="@string/passwordHelper"
             app:error="@{signUpForm.passwordInitialized == true &amp; signUpForm.passwordState == true ? null : signUpForm.passwordInitialized == true &amp; signUpForm.password != null ? @string/invalidPassword : null }"
             app:errorEnabled="true"
@@ -68,6 +72,7 @@
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="@={signUpForm.password}" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -82,6 +87,7 @@
             android:layout_marginEnd="16dp"
             android:hint="@string/confirmPasswordHint"
             app:errorIconDrawable="@null"
+            android:textColorHint="@color/white"
             app:passwordToggleEnabled="true"
             app:error="@{signUpForm.confirmPasswordInitialized == true &amp; signUpForm.confirmPasswordState == true ? null : signUpForm.passwordMatchState == false &amp; signUpForm.confirmPassword != null ? @string/passwordNotMatch : null}"
             app:errorEnabled="true"
@@ -95,6 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
+                android:textColor="@color/white"
                 android:text="@={signUpForm.confirmPassword}" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -109,6 +116,7 @@
             android:layout_marginEnd="16dp"
             app:errorIconDrawable="@null"
             android:hint="@string/fui_email_hint"
+            android:textColorHint="@color/white"
             app:error="@{signUpForm.mobileState == true ? null : signUpForm.mobile.empty ? @string/mobileRequired : signUpForm.mobileInitialized ? @string/invalidMobile : null}"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -121,6 +129,7 @@
                 android:layout_width="match_parent"
                 android:inputType="textEmailAddress"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="@={signUpForm.mobile}" />
 
         </com.google.android.material.textfield.TextInputLayout>

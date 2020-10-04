@@ -7,6 +7,7 @@
     <color name="white">#ffff</color>
     <color name="lack">#000000</color>
     <color name="ash">#F6F6F6</color>
+    <color name="background">#273443</color>
 
     <color name="deliveryColorPrimary">#00acc1</color>
     <color name="deliveryColorPrimaryDark">#007c91</color>
